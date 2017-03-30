@@ -22,9 +22,9 @@ export const store = new Vuex.Store({
         setPosts(state, payload){
             state.posts = payload;
         },
-				toggleNav(state, payload){
-						state.showMenu = payload;
-				},
+		toggleNav(state, payload){
+				state.showMenu = payload;
+		},
         logout(state){
             state.user = null;
         }

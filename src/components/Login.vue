@@ -10,6 +10,7 @@
 
 <script>
     import facebook from '../helpers/facebook';
+    import axios from 'axios';
 
 
     export default{
@@ -22,13 +23,18 @@
                 facebook.fbLogin()
                     .then(response => {
                       if (response!= null){
-                        localStorage.setItem("userInfo",JSON.stringify(response));
-                      }
-                        this.$store.commit('setUser', {
-                            name: "Afik Deri"
-                        });
 
-                        console.log(response);
+                        axios.post("http://dev.servpile.com/api/login", {
+                            fb_data: response
+                        })
+                        .then(res => {
+                            localStorage.setItem("userInfo",JSON.stringify(res.data.user));
+                            this.$store.commit("setUser", res.data.user);
+                        })
+                        .catch(err => {
+                            swal("Oops", "Something went wrong, please try again", "error");
+                        });
+                    }
                     })
                     .catch(error => {
                         console.log(error);
@@ -152,3 +158,4 @@ body {
 }
 
 </style>
+v

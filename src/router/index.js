@@ -7,6 +7,7 @@ import Post from '../components/Post'
 import Flights from '../components/Flights'
 import Country from '../components/Country'
 import Contact from '../components/Contact'
+import NotFound from '../components/NotFound'
 
 Vue.use(Router)
 
@@ -36,13 +37,17 @@ let router = new Router({
     {
       path: '/contact',
       component: Contact
+    },
+    {
+    	path: "*",
+    	component: NotFound
     }
   ]
 });
 
 router.beforeEach((to, from, next) => {
-  store.commit("toggleNav", false);
-  next();
+  	store.commit("toggleNav", false);
+  	next();
 })
 
 export default router;
