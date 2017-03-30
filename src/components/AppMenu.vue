@@ -1,4 +1,5 @@
 <template>
+	<div>
 		<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" v-show="showMenu">
 		  <a href="#" @click.prevent="showMenu = false" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a> 
 		  <a href="#" @click.prevent="showMenu = false" class="w3-bar-item w3-button w3-center w3-padding-16">PORTFOLIO</a> 
