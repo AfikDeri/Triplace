@@ -11,7 +11,10 @@
 		    						<a href="#"><img :src="post.user.avatar" alt=""/></a>
 		    					</div>
 		    					<div class="icerik-bilgi">
-		    						<a href="#"><h2>{{ post.title }}</h2></a>
+										<router-link :to="'/posts/' + post.id">
+											<a><h2>{{ post.title }}</h2></a>
+										</router-link>
+
 		    						<p>{{ post.body }}</p>
 		    						<div class="btn-group">
 		    							<a class="btn btn-social btn-facebook" href="#" data-toggle="tooltip" title="Share Facebook"><i class="fa fa-facebook"></i></a>

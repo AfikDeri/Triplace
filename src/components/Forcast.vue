@@ -13,8 +13,9 @@
 
 		mounted(){
 
+			let url = buildWeatherTo7DaysURL("36.0857", "-115.1541");
 			//get your weather
-			axios.get(buildWeatherTo7DaysURL("36.0857", "-115.1541"))
+			axios.get(url)
 				.then(response => {
 					console.log(data);
 					//this.forcast = response.data;

@@ -40,6 +40,7 @@ body,h1,h2,h3,h4,h5 {
 
 a#logo-text, a#logo-text:active {
     text-decoration: none;
+		color: #fff;
 }
 
 .w3-bar-block .w3-bar-item {
