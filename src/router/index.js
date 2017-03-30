@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '../components/Home'
 import Posts from '../components/Posts'
 import Flights from '../components/Flights'
+import Country from '../components/Country'
 
 Vue.use(Router)
 
@@ -20,6 +21,10 @@ export default new Router({
     {
       path: '/flights',
       component: Flights
+    },
+    {
+    	path: '/countries/:name',
+    	component: Country
     }
   ]
 })
