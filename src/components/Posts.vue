@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="posts-list">
 		<div v-for="post in posts">
 
 			<div class="left-panel">
@@ -8,7 +8,7 @@
 		    		    <div class="panel-body">
 		    				<div class="col-md-12">
 		    					<div class="thumbnail">
-		    						<a href="#"><img :src="post.user.avatar" alt=""/></a>
+		    						<img :src="post.user.avatar" alt=""/>
 		    					</div>
 		    					<div class="icerik-bilgi">
 										<router-link :to="'/posts/' + post.id">
@@ -21,8 +21,8 @@
 		    							<a class="btn btn-social btn-twitter" href="#" data-toggle="tooltip" title="Share Twitter"><i class="fa fa-twitter"></i></a>
 		    							<a class="btn btn-social btn-google" href="#" data-toggle="tooltip" title="Share Google"><i class="fa fa-google"></i></a>
 		    						</div>
-		    						<router-link :to="'/posts/' + post.id" class="btn btn-primary">
-		    							<span class="btn btn-google">View Post <i class="fa fa-chevron-right"></i></span>
+		    						<router-link :to="'/posts/' + post.id" class="btn btn-link pull-right">
+		    							View Post <i class="fa fa-chevron-right"></i>
 		    						</router-link>
 		    					</div>
 		    				</div>
@@ -83,4 +83,11 @@ a, p, h2{text-decoration:none;}
 .btn-group .btn-facebook:hover{color:#3B5998;}
 .btn-group .btn-twitter:hover{color:#55ACEE;}
 .btn-group .btn-google:hover{color:#DD4B39;}
+
+@media (min-width: 1000px){
+	.posts-list{
+		width: 65%;
+		margin: 0px auto;
+	}
+}
 </style>

@@ -13,7 +13,7 @@ const GET_AFFILIATE_FLIGHTS = "flights/affiliate-search?apikey= &origin=LON&dest
 
 const GET_WEATHER_TO_7_DAYS_URL = "https://twcservice.mybluemix.net/api/weather/v1/geocode/"
 
-export function buildWeatherTo7DaysURL(longitude , latitude) {
+export function buildWeatherTo7DaysURL(latitude, longitude) {
   return GET_WEATHER_TO_7_DAYS_URL + latitude + "/" + longitude + "/forecast/daily/7day.json";
 }
 

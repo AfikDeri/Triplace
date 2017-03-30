@@ -8,12 +8,19 @@ export const store = new Vuex.Store({
 	state: {
 		user: null,
 		showMenu: false,
+		query: "",
 		posts: [],
-        countries: [
-            {name: "Brazil", image: "https://www.w3schools.com/w3images/girl_train.jpg"},
-            {name: "Mexico", image: "https://www.w3schools.com/w3images/girl.jpg"},
-            {name: "Israel", image: "https://www.w3schools.com/w3images/natureboy.jpg"}
-        ]
+		countries: [
+			{name:"argentina", upper: "Argentina"},
+			{name:"belize", upper: "Belize"},
+			{name: "bolivia", upper: "Bolivia"},
+			{name:"brazil", upper:"Brazil"},
+			{name:"chile", upper:"Chile"},
+			{name:"colombia", upper:"Colombia"},
+			{name:"mexico", upper:"Mexico"},
+			{name:"ecuador", upper:"Ecuador"},
+			{name:"peru", upper:"Peru"},
+		]
 	},
 	mutations: {
         setUser(state, payload){
@@ -30,7 +37,9 @@ export const store = new Vuex.Store({
         }
 
     },
-	actions: {
-
+		actions: {
+			searchTyped(context, query){
+				context.state.query = query;
+			}
     }
 });
