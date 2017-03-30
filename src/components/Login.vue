@@ -42,6 +42,14 @@
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+body{
+  background: url('../assets/bg.jpeg');
+  background-size: 100%;
+  height:100vh;
+  background-repeat:no-repeat;
+
+}
+
 .login-page {
   width: 360px;
   padding: 8% 0 0;
