@@ -5,6 +5,7 @@
 </template>
 
 <script>
+	import buildWeatherTo7DaysURL from '../helpers/urls.js'
 	import axios from 'axios';
 
 	export default{
@@ -13,11 +14,11 @@
 		mounted(){
 
 			//get your weather
-			//
-			// axios.get("http://someurl.com")
-			// 	.then(response => {
-			// 		this.forcast = response.data;
-			// 	});
+			axios.get(buildWeatherTo7DaysURL("36.0857", "-115.1541"))
+				.then(response => {
+					console.log(data);
+					//this.forcast = response.data;
+				});
 		},
 
 		data(){
