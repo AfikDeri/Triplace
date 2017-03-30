@@ -2,7 +2,7 @@
 	<div class="w3-container w3-padding-32 w3-padding-large" id="contact">
 	<div class="w3-content" style="max-width:600px">
 		<h4 class="w3-center"><b>Contact Me</b></h4>
-		<p>Do you want me to photograph you? Fill out the form and fill me in with the details :) I love meeting new people!</p>
+		<p class="w3-center">Now that you know us, let us know what do you think!</p>
 		<form action="/action_page.php" target="_blank">
 			<div class="w3-section">
 				<label>Name</label>
@@ -16,7 +16,7 @@
 				<label>Message</label>
 				<input class="w3-input w3-border" type="text" name="Message" required>
 			</div>
-			<button type="submit" class="w3-button w3-block w3-black w3-margin-bottom">Send Message</button>
+			<button type="submit" class="w3-button w3-block w3-black w3-margin-bottom" style="background-color:#337ab7!important;">Send Message</button>
 		</form>
 	</div>
 </div>

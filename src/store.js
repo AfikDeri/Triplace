@@ -7,6 +7,7 @@ export const store = new Vuex.Store({
 
 	state: {
 		user: null,
+		showMenu: false,
 		posts: [],
         countries: [
             {name: "Brazil", image: "https://www.w3schools.com/w3images/girl_train.jpg"},
@@ -21,6 +22,9 @@ export const store = new Vuex.Store({
         setPosts(state, payload){
             state.posts = payload;
         },
+				toggleNav(state, payload){
+						state.showMenu = payload;
+				},
         logout(state){
             state.user = null;
         }

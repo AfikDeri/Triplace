@@ -27,3 +27,21 @@ body,h1,h2,h3,h4,h5 {
 	padding-left: 0;
 	padding-right: 0;
 }
+
+.menu-btn,
+.menu-btn:hover {
+	color: #fff !important;
+	background-color: #337ab7!important;
+}
+
+a#logo-text, a#logo-text:active {
+    text-decoration: none;
+}
+
+.w3-bar-block .w3-bar-item {
+    color: #337ab7;
+}
+.side-nav, .side-nav:hover {
+    color: #fff!important;
+    background-color: #fff!important;
+}

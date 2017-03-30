@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import {store} from '../store'
 import Home from '../components/Home'
 import Posts from '../components/Posts'
 import Flights from '../components/Flights'
@@ -8,7 +9,7 @@ import Contact from '../components/Contact'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
@@ -32,4 +33,11 @@ export default new Router({
       component: Contact
     }
   ]
+});
+
+router.beforeEach((to, from, next) => {
+  store.commit("toggleNav", false);
+  next();
 })
+
+export default router;
