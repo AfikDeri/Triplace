@@ -1,40 +1,47 @@
 <template>
 	<div>
-		<h4 class="text-center">Forcast here...</h4>
+		<ul>
+			<li v-for="daily in forcast.DailyForecasts">{{ daily.Day.IconPhrase }}</li>
+		</ul>
 	</div>
 </template>
 
 <script>
-	import {buildWeatherTo7DaysURL} from '../helpers/urls.js'
+	import {buildWeatherForecastURL} from '../helpers/urls.js'
 	import axios from 'axios';
 
 	export default{
 		name: "forcast",
 
 		mounted(){
-			// Create an instance using the config defaults provided by the library
-			// At this point the timeout config value is `0` as is the default for the library
-			var instance = axios.create({
-			    timeout: 1000,
-					withCredentials: true,
-					auth: {
-			    username: '78db17aa-24d2-4c11-ae64-390a42b6a7a8',
-			    password: 'Wi3qAPbsPp'
+			
+			let country = this.$route.params.name;
+			let id;
 
-			  }
+			this.countries.map(ctr => {
+				if(ctr.name == country){
+					id = ctr.id;
+				}
 			});
 
-			//get your weather
-			instance.get(buildWeatherTo7DaysURL("36.0857", "-115.1541"))
-				.then(response => {
-					console.log(data);
-					//this.forcast = response.data;
-				});
-		},
+			if(id != undefined){
+				//get your weather
+				axios.get(buildWeatherForecastURL(id))
+					.then(response => {
+						console.log(response.data);
+						this.forcast = response.data;
+					});
+			}
 
+		},
 		data(){
 			return {
 				forcast: {}
+			}
+		},
+		computed: {
+			countries(){
+				return this.$store.state.countries;
 			}
 		}
 
