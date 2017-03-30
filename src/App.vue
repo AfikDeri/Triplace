@@ -35,5 +35,11 @@ export default {
 </script>
 
 <style>
+body{
+  background: url('./assets/bg.jpeg');
+  background-size: 100%;
+  height:100vh;
+  background-repeat:no-repeat;
 
+}
 </style>

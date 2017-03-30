@@ -1,8 +1,10 @@
 <template>
 	<div>
-<datepicker name="fromDate"></datepicker>
+		<ul class=" col-xs-12 container navbar">
 
-
+		<li><datepicker v-on:selected="limitToDate" v-model="fromDate" placeholder="From" :disabled="fromRange"></datepicker></li>
+		<li><datepicker v-model="toDate" placeholder="To" :disabled="toRange"></datepicker></li>
+</ul>
 	</div>
 </template>
 
@@ -21,6 +23,23 @@
 			// });
 		},
 
+		data(){
+			return {
+				fromDate: "From",
+				toDate: "To",
+				fromRange:{
+        to: new Date() // Disable all dates after specific date
+			},
+			toRange:{
+				to: this.fromDate
+			}
+
+
+			};
+		},
+		components:{
+			Datepicker
+		},
 		computed: {
 
 			posts(){
@@ -28,11 +47,13 @@
 	        }
 		},
 		methods: {
-			//
-		},
-		components:{
-			Datepicker
+			limitToDate(){
+				this.toRange = {
+					to: this.fromDate
+				}
+			}
 		}
+
 	}
 
 </script>
