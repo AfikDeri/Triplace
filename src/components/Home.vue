@@ -1,5 +1,5 @@
 <template>
-    <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+    <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px;margin-bottom:70px;">
       <div class="w3-row w3-grayscale-min">
           <div class="w3-third">
             <img :src="require('../assets/Argentina.jpg')" style="width:100%" @click="showCountry('argentina')" alt="Argentina">

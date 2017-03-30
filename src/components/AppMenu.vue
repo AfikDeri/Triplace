@@ -13,8 +13,10 @@
 
 		<!-- Top menu on small screens -->
 		<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
-		  <span class="w3-left w3-padding">
+		  <span class="w3-left w3-padding" style="cursor:pointer">
+				<router-link to="/">
 					<i class="fa fa-plane"></i> Triplace
+				</router-link>
 			</span>
 		  <a href="#" class="w3-right w3-button w3-white" @click.prevent="showMenu = true">☰</a>
 		</header>
