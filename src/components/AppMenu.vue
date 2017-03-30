@@ -25,6 +25,9 @@
 				<router-link to="/"  id="logo-text">
 					<i class="fa fa-plane"></i> Triplace
 				</router-link>
+				<span v-if="selectedCountry">
+					| {{ selectedCountry.upper }}
+				</span>
 			</span>
 			<div class="pull-right search">
 				<input type="text" name="query" placeholder="Search..." @input="$store.dispatch('searchTyped', $event.target.value)"><i class="fa fa-search"></i>
@@ -42,9 +45,12 @@
 		name: "app-menu",
 
 		computed: {
-				showMenu(){
-					return this.$store.state.showMenu;
-				}
+			showMenu(){
+				return this.$store.state.showMenu;
+			},
+			selectedCountry(){
+				return this.$store.state.selectedCountry;
+			}
 		},
 
 		methods: {

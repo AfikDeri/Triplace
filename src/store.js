@@ -12,6 +12,7 @@ export const store = new Vuex.Store({
 		flight:null,
 		hotel:null,
 		posts: [],
+        selectedCountry: null,
         countries: [
 			{name:"argentina", upper: "Argentina", id:"9562"},
     		{name:"belize", upper: "Belize", id:"27206"},
@@ -37,12 +38,15 @@ export const store = new Vuex.Store({
         logout(state){
             state.user = null;
         },
-				setFlight(state,payload){
-					state.flight = payload;
-				},
-				setHotel(state,payload){
-					state.hotel = payload;
-				}
+        setCountry(state, payload){
+            state.selectedCountry = payload;
+        },
+		setFlight(state,payload){
+			state.flight = payload;
+		},
+		setHotel(state,payload){
+			state.hotel = payload;
+		}
 
     },
 		actions: {
