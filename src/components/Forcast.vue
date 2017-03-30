@@ -13,8 +13,20 @@
 
 		mounted(){
 
+			// Create an instance using the config defaults provided by the library
+// At this point the timeout config value is `0` as is the default for the library
+var instance = axios.create({
+    timeout: 1000,
+		withCredentials: true,
+		auth: {
+    username: '78db17aa-24d2-4c11-ae64-390a42b6a7a8',
+    password: 'Wi3qAPbsPp'
+
+  }
+});
+
 			//get your weather
-			axios.get(buildWeatherTo7DaysURL("36.0857", "-115.1541"))
+			instance.get(buildWeatherTo7DaysURL("36.0857", "-115.1541"))
 				.then(response => {
 					console.log(data);
 					//this.forcast = response.data;
