@@ -13,6 +13,7 @@ export const store = new Vuex.Store({
 		hotel:null,
 		posts: [],
         selectedCountry: null,
+        categories: [],
         countries: [
 			{name:"argentina", upper: "Argentina", id:"9562"},
     		{name:"belize", upper: "Belize", id:"27206"},
@@ -46,7 +47,10 @@ export const store = new Vuex.Store({
 		},
 		setHotel(state,payload){
 			state.hotel = payload;
-		}
+		},
+        setCategories(state, payload){
+            state.categories = payload;
+        }
 
     },
 		actions: {

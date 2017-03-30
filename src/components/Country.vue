@@ -1,8 +1,13 @@
 <template>
-	<div class="w3-container">
-		<h4 class="text-center main-title">Weekly forcast</h4>
-			<forcast></forcast>
+	<div class="w3-container main-title">
+		<forcast></forcast>
+
 		<hr>
+		<div id="category-filter">
+			<span>Filter By:</span>
+			<button class="btn" @click.prevent="selectCategory('All')" :class="cat == 'All' ? 'btn-primary' : ''">All</button>
+			<button class="btn" @click.prevent="selectCategory(category)" :class="cat.name == category.name ? 'btn-primary' : ''" v-for="category in categories">{{ category.name }}</button>
+		</div>
 
 		<div class="w3-row">
 			<a href="#" @click.prevent="viewType = 'list'">
@@ -14,7 +19,7 @@
 		</div>
 
 		<div class="w3-container city" v-if="viewType == 'list'">
-			<posts></posts>
+			<posts :country="country"></posts>
 		</div>
 
 		<div class="w3-container city" v-if="viewType == 'map'">
@@ -41,11 +46,7 @@
 				}
 			});
 
-			axios.get("http://dev.servpile.com/api/posts?country="+this.country+"&api_token=uPfQo1ED5tVPkd6zQ42Y1AfMZsEHeo0QvD0ZlEVuWUMni7OIkTlXTcxphtUa")
-			.then((response) => {
-
-				this.$store.commit("setPosts", response.data.posts);
-			});
+			this.selectCategory("All");
 		},
 
 		computed: {
@@ -54,13 +55,34 @@
 			},
 			countries(){
 				return this.$store.state.countries;
-			}
+			},
+			categories(){
+	        	return this.$store.state.categories;
+	        }
 		},
 
 		data(){
 			return {
 				viewType: "list",
-				country: ""
+				country: "",
+				cat: ""
+			}
+		},
+		methods: {
+			selectCategory(category){
+				this.cat = category;
+
+				let url = "http://dev.servpile.com/api/posts?country="+this.country+"&api_token=uPfQo1ED5tVPkd6zQ42Y1AfMZsEHeo0QvD0ZlEVuWUMni7OIkTlXTcxphtUa";
+
+				let categoryId = category == "All" ? "" : "&category="+ this.cat.id;
+
+				axios.get(url + categoryId)
+				.then((response) => {
+					this.$store.commit("setPosts", response.data.posts);
+					this.$store.commit("setCategories", response.data.categories);
+
+					eventBus.$emit("postsRefreshed");
+				});
 			}
 		},
 		components: {

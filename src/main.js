@@ -7,6 +7,8 @@ import {store} from './store';
 
 Vue.config.productionTip = false
 
+window.eventBus = new Vue({});
+
 new Vue({
   el: '#app',
   router,

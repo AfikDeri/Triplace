@@ -9,14 +9,9 @@
 		name: "map-view",
 
 		mounted(){
-			var rio = {lat: -22.9612286, lng: -43.2066321};
+			this.createMap();
 
-            this.map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: rio
-            });
-
-            this.renderMarkers();
+            eventBus.$on("postsRefreshed", this.createMap);
 		},
 		data(){
 			return {
@@ -30,6 +25,16 @@
 		},
 
 		methods: {
+			createMap(){
+				var rio = {lat: -22.9612286, lng: -43.2066321};
+
+				this.map = new google.maps.Map(document.getElementById('map'), {
+	                zoom: 12,
+	                center: rio
+	            });
+
+	            this.renderMarkers();
+			},
 			renderMarkers(){
 				this.posts.map(post => {
 					var contentString = '<div id="content">'+

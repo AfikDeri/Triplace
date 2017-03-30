@@ -1,18 +1,16 @@
 <template>
-		<div id="weather_hourly" style="width: 800px; height: 80px; margin: 0px auto; padding: 5px; display: inline;">
-
+	<div id="weather_hourly" style="width: 800px; height: 80px; margin: 0px auto; padding: 5px; display: inline;">
+		<div id="weather-wrapper">
 			<div class="row">
 				<div class="col-xs-1"></div>
-					<div v-for="daily in forcast.DailyForecasts" class="col-xs-2 daily-forcast text-center">
-						<h5>{{ daily.Day.IconPhrase }}</h5>
-						<img :src="require('../assets/weatherIcons/' + daily.Day.Icon + '-s.png')" alt="">
-						<h6>{{ daily.Temperature.Minimum.Value + " " +daily.Temperature.Minimum.Unit + " / " + daily.Temperature.Maximum.Value + " " +daily.Temperature.Maximum.Unit }}</h6>
-					</div>
+				<div v-for="daily in forcast.DailyForecasts" class="col-xs-2 daily-forcast text-center">
+					<h5>{{ daily.Day.IconPhrase }}</h5>
+					<img :src="require('../assets/weatherIcons/' + daily.Day.Icon + '-s.png')" alt="">
+					<h6>{{ daily.Temperature.Minimum.Value + " " +daily.Temperature.Minimum.Unit + " / " + daily.Temperature.Maximum.Value + " " +daily.Temperature.Maximum.Unit }}</h6>
+				</div>
 			</div>
-
 		</div>
-
-
+	</div>
 </template>
 
 <script>
@@ -60,11 +58,19 @@
 
 <style>
 	.daily-forcast img{
-		width: 90px;
+		width: 80px;
 		margin: 0px auto;
 	}
 
 	.daily-forcast h5{
-		min-height: 60px;
+		min-height: 40px;
+		font-size: 15px;
+	}
+
+	@media (min-width: 1000px){
+		#weather-wrapper{
+			width: 70%;
+			margin: 0px auto;
+		}
 	}
 </style>

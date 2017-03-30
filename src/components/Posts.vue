@@ -1,42 +1,48 @@
 <template>
 	<div class="posts-list">
-		<div v-for="post in posts">
+		<div v-if="posts.length">
+			<div v-for="post in posts">
+				<div class="left-panel">
+			        <div class="col-xs-12 col-sm-12 col-lg-12">
+			            <div class="panel panel-default">
+			    		    <div class="panel-body">
+			    				<div class="col-md-12">
+			    					<div class="thumbnail">
+			    						<img :src="post.user.avatar" alt=""/>
+			    					</div>
+			    					<div class="icerik-bilgi">
+											<router-link :to="'/posts/' + post.id">
+												<a><h2>{{ post.title }}</h2></a>
+											</router-link>
 
-			<div class="left-panel">
-		        <div class="col-xs-12 col-sm-12 col-lg-12">
-		            <div class="panel panel-default">
-		    		    <div class="panel-body">
-		    				<div class="col-md-12">
-		    					<div class="thumbnail">
-		    						<img :src="post.user.avatar" alt=""/>
-		    					</div>
-		    					<div class="icerik-bilgi">
-										<router-link :to="'/posts/' + post.id">
-											<a><h2>{{ post.title }}</h2></a>
-										</router-link>
-
-		    						<p>{{ post.body }}</p>
-		    						<div class="btn-group">
-		    							<a class="btn btn-social btn-facebook" href="#" data-toggle="tooltip" title="Share Facebook"><i class="fa fa-facebook"></i></a>
-		    							<a class="btn btn-social btn-twitter" href="#" data-toggle="tooltip" title="Share Twitter"><i class="fa fa-twitter"></i></a>
-		    							<a class="btn btn-social btn-google" href="#" data-toggle="tooltip" title="Share Google"><i class="fa fa-google"></i></a>
-		    						</div>
-		    						<router-link :to="'/posts/' + post.id" class="btn btn-link pull-right">
-		    							View Post <i class="fa fa-chevron-right"></i>
-		    						</router-link>
-		    					</div>
-		    				</div>
-		    			</div>
-		    		</div>
-		        </div>
-		    </div>
+			    						<p>{{ post.body }}</p>
+			    						<div class="btn-group">
+			    							<a class="btn btn-social btn-facebook" href="#" data-toggle="tooltip" title="Share Facebook"><i class="fa fa-facebook"></i></a>
+			    							<a class="btn btn-social btn-twitter" href="#" data-toggle="tooltip" title="Share Twitter"><i class="fa fa-twitter"></i></a>
+			    							<a class="btn btn-social btn-google" href="#" data-toggle="tooltip" title="Share Google"><i class="fa fa-google"></i></a>
+			    						</div>
+			    						<router-link :to="'/posts/' + post.id" class="btn btn-link pull-right">
+			    							View Post <i class="fa fa-chevron-right"></i>
+			    						</router-link>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			        </div>
+			    </div>
+				<hr>
+			</div>
+		</div>
+		<div class="text-center" v-else>
 			<hr>
+			<h3 class="no-results">No results for this category</h3>
 		</div>
 
 	</div>
 </template>
 
 <script>
+	import axios from 'axios';
 
 	export default{
 		name: "posts",
@@ -83,6 +89,16 @@ a, p, h2{text-decoration:none;}
 .btn-group .btn-facebook:hover{color:#3B5998;}
 .btn-group .btn-twitter:hover{color:#55ACEE;}
 .btn-group .btn-google:hover{color:#DD4B39;}
+
+div#category-filter {
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 10px;
+}
+div#category-filter button {
+    width: 100px;
+    margin: 1px 8px;
+}
 
 @media (min-width: 1000px){
 	.posts-list{
