@@ -21,8 +21,9 @@
 
                 facebook.fbLogin()
                     .then(response => {
-                        debugger;
-
+                      if (response!= null){
+                        localStorage.setItem("userInfo",JSON.stringify(response));
+                      }
                         this.$store.commit('setUser', {
                             name: "Afik Deri"
                         });
@@ -138,7 +139,7 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('http://www.osiguranik.com/wp-content/uploads/2016/11/najjeftinije-putno.jpg');    
+  background-image: url('http://www.osiguranik.com/wp-content/uploads/2016/11/najjeftinije-putno.jpg');
   background-size: 100%;
 }
 
