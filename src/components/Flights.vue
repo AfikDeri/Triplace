@@ -130,7 +130,7 @@
 	}
 
 </script>
-<style>
+<style scoped>
 body{
 	background-color:#4CAF50;
 	background:#4CAF50;
