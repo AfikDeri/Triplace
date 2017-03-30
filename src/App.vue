@@ -3,7 +3,9 @@
 
     <div v-if="user">
         <app-menu></app-menu>
-        <router-view></router-view>
+        <div id="content">
+          <router-view></router-view>
+        </div>
     </div>
     <div v-else>
         <login></login>

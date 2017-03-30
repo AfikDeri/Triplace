@@ -1,5 +1,5 @@
 <template>
-  <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+    <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
       <div class="w3-row w3-grayscale-min">
           <div class="w3-third">
             <img :src="require('../assets/Argentina.jpg')" style="width:100%" @click="showCountry('argentina')" alt="Argentina">
@@ -18,12 +18,6 @@
             <img :src="require('../assets/Ecuador.jpg')" style="width:100%" @click="showCountry('ecuador')" alt="Ecuador">
             <img :src="require('../assets/Peru.jpg')" style="width:100%" @click="showCountry('peru')" alt="Peru">
           </div>
-
-          <!-- <div class="w3-quarter">
-            <img :src="require('../assets/Mexico.jpg')" style="width:100%" @click="showCountry('mexico')" alt="Mexico">
-            <img :src="require('../assets/Panama.jpg')" style="width:100%" @click="showCountry('panama')" alt="Panama">
-            <img :src="require('../assets/Guatemala.jpg')" style="width:100%" @click="showCountry('guatemala')" alt="Guatemala">
-          </div> -->
         </div>
   </div>
 </template>
@@ -51,15 +45,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-body,h1,h2,h3,h4,h5 {
-  font-family: "Raleway", sans-serif
-}
-.w3-third img{
-  margin-bottom: 0px; cursor: pointer
-}
-.w3-third img:hover{
-  opacity: 0.6; transition: 0.3s
-}
-</style>

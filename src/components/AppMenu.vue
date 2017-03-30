@@ -4,7 +4,11 @@
 		  <a href="#" @click.prevent="showMenu = false" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a>
 		  <a href="#" @click.prevent="showMenu = false" class="w3-bar-item w3-button w3-center w3-padding-16">PORTFOLIO</a>
 		  <a href="#about" @click.prevent="showMenu = false" class="w3-bar-item w3-button w3-center w3-padding-16">ABOUT ME</a>
-		  <a href="#contact" @click.prevent="showMenu = false" class="w3-bar-item w3-button w3-center w3-padding-16">CONTACT</a>
+			<router-link to="/contact" class="w3-bar-item w3-button w3-center w3-padding-16">
+				<a @click.prevent="showMenu = false">
+						CONTACT
+				</a>
+			</router-link>
 		</nav>
 
 		<!-- Top menu on small screens -->
@@ -37,7 +41,3 @@
 		}
 	}
 </script>
-
-<style>
-
-</style>
