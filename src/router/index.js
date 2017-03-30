@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import {store} from '../store'
 import Home from '../components/Home'
 import Posts from '../components/Posts'
+import Post from '../components/Post'
 import Flights from '../components/Flights'
 import Country from '../components/Country'
 import Contact from '../components/Contact'
@@ -19,6 +20,10 @@ let router = new Router({
     {
       path: '/posts',
       component: Posts
+    },
+    {
+      path: '/posts/:id',
+      component: Post
     },
     {
       path: '/flights',

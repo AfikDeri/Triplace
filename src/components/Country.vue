@@ -1,6 +1,6 @@
 <template>
 	<div class="w3-container">
-	  <h2>About {{ country }}</h2>
+	  <h2 class="main-title">{{ country }}</h2>
 
 
 	  <h4 class="text-center">Weekly forcast</h4>
