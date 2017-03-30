@@ -12,7 +12,7 @@
 		</nav>
 
 		<!-- Top menu on small screens -->
-		<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+		<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16" id="menu-nav">
 		  <span class="w3-left w3-padding" style="cursor:pointer">
 				<router-link to="/">
 					<i class="fa fa-plane"></i> Triplace
@@ -43,3 +43,11 @@
 		}
 	}
 </script>
+
+<style>
+	#menu-nav{
+		box-shadow: 1px 1px 18px #000;
+		color: #fff!important;
+    	background-color: #337ab7!important;
+	}
+</style>

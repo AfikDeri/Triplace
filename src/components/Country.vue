@@ -1,7 +1,12 @@
 <template>
 	<div class="w3-container">
-	  <h2>Posts from {{ country }}</h2>
+	  <h2>About {{ country }}</h2>
 
+
+	  <h4 class="text-center">Weekly forcast</h4>
+	  <forcast></forcast>
+	  <hr>
+	
 	  <div class="w3-row">
 	    <a href="#" @click.prevent="viewType = 'list'">
 	      <div class="w3-half tablink w3-bottombar w3-hover-light-grey w3-padding" :class="viewType == 'list' ? 'w3-border-blue' : ''">All posts</div>
@@ -12,9 +17,7 @@
 	  </div>
 
 	  <div class="w3-container city" v-if="viewType == 'list'">
-	    
 		<posts></posts>
-
 	  </div>
 
 	  <div class="w3-container city" v-if="viewType == 'map'">
@@ -27,6 +30,7 @@
 	import axios from 'axios';
 	import Posts from './Posts';
 	import MapView from './MapView';
+	import Forcast from './Forcast';
 
 	export default{
 		name: "country",
@@ -54,7 +58,7 @@
 			}
 		},
 		components: {
-			Posts, MapView
+			Posts, MapView, Forcast
 		}
 	}
 </script>

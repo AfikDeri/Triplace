@@ -1,36 +1,34 @@
 <template>
 	<div>
-		<img src="http://murphysportfishing.com/media2/images/700/fishing-report/weekly-weather-forecast-as-of-feb-17-2014.png" class="forecast-img" alt="">
 		<div v-for="post in posts">
-			<div class="row post-wrapper">
-			  <div class="col-md-12">
-			    <div class="row">
-			      <div class="col-md-8">
-			        <h4><strong><a href="#">{{ post.title }}</a></strong></h4>
-			      </div>
-			    </div>
-			    <div class="row">
-			      <div class="col-md-2">
-			        <a href="#" class="thumbnail">
-			            <img :src="post.user.avatar" alt="">
-			        </a>
-			      </div>
-			      <div class="span10">      
-			        <p>{{ post.body }}</p>
-			        <p><a class="btn" href="#">Read more</a></p>
-			      </div>
-			    </div>
-			    <div class="row">
-			      <div class="col-md-8">
-			        <p></p>
-			        <p>
-			          <i class="fa fa-user"></i> by {{ post.user.name }}
-			          | <i class="fa fa-calendar"></i> {{ post.created_at }}
-			        </p>
-			      </div>
-			    </div>
-			  </div>
-			</div>
+
+			<div class="left-panel">
+		        <div class="col-xs-12 col-sm-12 col-lg-12">
+		            <div class="panel panel-default">
+		    		    <div class="panel-body">
+		    				<div class="col-md-12">
+		    					<div class="thumbnail">
+		    						<a href="#"><img :src="post.user.avatar" alt=""/></a>
+		    					</div>
+		    					<div class="icerik-bilgi">
+		    						<a href="#"><h2>{{ post.title }}</h2></a>
+		    						<p>{{ post.body }}</p>
+		    						<div class="btn-group">
+		    							<a class="btn btn-social btn-facebook" href="#" data-toggle="tooltip" title="Share Facebook"><i class="fa fa-facebook"></i></a>
+		    							<a class="btn btn-social btn-twitter" href="#" data-toggle="tooltip" title="Share Twitter"><i class="fa fa-twitter"></i></a>
+		    							<a class="btn btn-social btn-google" href="#" data-toggle="tooltip" title="Share Google"><i class="fa fa-google"></i></a>
+		    						</div>
+		    						<a href="#">
+		    						 <button type="button" class="btn btn-primary">
+		    							<span class="btn btn-google">Read More <i class="fa fa-chevron-right"></i></span>
+		    						 </button>
+		    						 </a>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+		        </div>
+		    </div>
 			<hr>
 		</div>
 
@@ -56,8 +54,32 @@
 </script>
 
 <style>
-	.forecast-img{
-		width: 100%;
-		margin: 30px 0px;
-	}
+.thumbnail img {
+    max-height: 100px;
+    padding-left: 17px;
+    padding-top: 17px;
+    padding-right: 34px;
+}
+.thumbnail {
+    float: left;
+}
+a, p, h2{text-decoration:none;}
+
+/* PANEL */
+.left-panel .panel-default{border-bottom-left-radius:7px; border-bottom-right-radius:7px; border-bottom:2px #DDD solid;}
+.left-panel .panel-default .panel-body {padding:0; margin:0;}
+.left-panel .panel-default .panel-body .col-md-12{margin:0; padding:0;}
+.left-panel .panel-default .panel-body .thumbnail{border:none; margin:0; padding:0; position:relative;}
+.left-panel .panel:hover img {opacity:.8;}
+.left-panel .panel-default .panel-body .icerik-bilgi{margin:30px;}
+.icerik-bilgi .btn-primary{float:right; margin-bottom:30px;}
+.icerik-bilgi h2{margin-bottom:30px; color:#333;}
+.icerik-bilgi h2:hover{color:#E74C3C; text-decoration:none;}
+.icerik-bilgi a:hover{text-decoration:none;}
+.icerik-bilgi p{margin-bottom:30px; line-height:25px; font-size:16px;}
+.icerik-bilgi .btn-group{float:left;}
+.btn-group a{font-size:26px; color:#CCC;}
+.btn-group .btn-facebook:hover{color:#3B5998;}
+.btn-group .btn-twitter:hover{color:#55ACEE;}
+.btn-group .btn-google:hover{color:#DD4B39;}
 </style>
