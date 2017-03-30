@@ -1,9 +1,18 @@
 <template>
-	<div>
-		<ul>
-			<li v-for="daily in forcast.DailyForecasts">{{ daily.Day.IconPhrase }}</li>
-		</ul>
-	</div>
+		<div id="weather_hourly" style="width: 800px; height: 80px; margin: 0px auto; padding: 5px; display: inline;">
+
+			<div class="row">
+				<div class="col-xs-1"></div>
+					<div v-for="daily in forcast.DailyForecasts" class="col-xs-2 daily-forcast text-center">
+						<h5>{{ daily.Day.IconPhrase }}</h5>
+						<img :src="require('../assets/weatherIcons/' + daily.Day.Icon + '-s.png')" alt="">
+						<h6>{{ daily.Temperature.Minimum.Value + " " +daily.Temperature.Minimum.Unit + " / " + daily.Temperature.Maximum.Value + " " +daily.Temperature.Maximum.Unit }}</h6>
+					</div>
+			</div>
+
+		</div>
+
+
 </template>
 
 <script>
@@ -48,3 +57,14 @@
 
 	}
 </script>
+
+<style>
+	.daily-forcast img{
+		width: 90px;
+		margin: 0px auto;
+	}
+
+	.daily-forcast h5{
+		min-height: 60px;
+	}
+</style>
