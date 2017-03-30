@@ -18,11 +18,9 @@
 		    							<a class="btn btn-social btn-twitter" href="#" data-toggle="tooltip" title="Share Twitter"><i class="fa fa-twitter"></i></a>
 		    							<a class="btn btn-social btn-google" href="#" data-toggle="tooltip" title="Share Google"><i class="fa fa-google"></i></a>
 		    						</div>
-		    						<a href="#">
-		    						 <button type="button" class="btn btn-primary">
-		    							<span class="btn btn-google">Read More <i class="fa fa-chevron-right"></i></span>
-		    						 </button>
-		    						 </a>
+		    						<router-link :to="'/posts/' + post.id" class="btn btn-primary">
+		    							<span class="btn btn-google">View Post <i class="fa fa-chevron-right"></i></span>
+		    						</router-link>
 		    					</div>
 		    				</div>
 		    			</div>
