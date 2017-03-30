@@ -1,6 +1,6 @@
 <template>
 	<div >
-		<form @submit=getFlights v-if="!isFlightSelected">
+		<form @submit=getHotels v-if="!isHotelSelected">
 		<ul class=" navbar">
 		<li class="nav-item">
 			<datepicker  v-on:selected="limitToDate" v-model="fromDate" placeholder="Departure" :disabled="fromRange"></datepicker>
@@ -9,40 +9,19 @@
 			<datepicker v-model="toDate" placeholder="Return" :disabled="toRange"></datepicker>
 		</li>
 		<li class="nav-item dropdown">
-			 <select class="btn dropdown-toggle destination" v-model="origin" placeholder="Origin">
-				  <option disabled value="">Origin</option>
-				  <option v-for="airport in airports" :value="airport.code">{{airport.name}}</option>
+			 <select class="btn dropdown-toggle destination" v-model="where" placeholder="Destination">
+					<option disabled value="">Where</option>
+					<option v-for="city in cities" :value="city.code">{{city.name}}</option>
 				</select>
 		</li>
-		<li class="nav-item dropdown">
-			 <select class="btn dropdown-toggle destination" v-model="destination" placeholder="Destination">
-					<option disabled value="">Destination</option>
-					<option v-for="airport in airports" :value="airport.code">{{airport.name}}</option>
-				</select>
-		</li>
-		<li class="nav-item"><button class="btn btn-primary">Search flights</button></li>
+		<li class="nav-item"><button class="btn btn-primary">Search hotels!</button></li>
 	</ul>
-	<div v-if="flightsList.length>0" class="flights-wrapper">
-		<div v-for="flight in flightsList" class="col-md-12 flight" v-on:click="selectFlight(flight)" >
-			<div class=" left-side">
-			<div v-for=" singleFlight in flight.outbound.flights" class="connection-flight">
-				<span> Flight Number: {{singleFlight.aircraft}}</span><br>
-				<span>{{singleFlight.origin.airport}} --> {{singleFlight.destination.airport}}</span><br>
-				<span>Departs At: {{singleFlight.departs_at.substring(11,100)}} </span><br>
-				<span>Arrives At: {{singleFlight.arrives_at.substring(11,100)}}</span>
-			</div>
-		</div>
-			<div class="right-side">
-			<span class="travel-class">Class:{{flight.travel_class}}</span><br>
-			<span>{{flight.airline}}</span><br>
-			<span>{{flight.outbound.duration}}</span><br>
-			<span>{{flight.fare.price_per_adult.total_fare}}</span>
-		</div>
-		</div>
+	<div v-if="hotelsList.length>0" class="flights-wrapper">
+
 	</div>
 </form>
-<div v-if="isFlightSelected">
-	<h3>Your fligh has been added to your cart!</h3>
+<div v-if="isHotelSelected">
+	<h3>Your hotel has been added to your cart!</h3>
 </div>
 	</div>
 </template>
@@ -52,7 +31,7 @@
 	import Datepicker from 'vuejs-datepicker';
 
 	export default{
-		name: "flights",
+		name: "hotels",
 
 		mounted(){
 			// axios.get("http://dev.servpile.com/api/posts?api_token=uPfQo1ED5tVPkd6zQ42Y1AfMZsEHeo0QvD0ZlEVuWUMni7OIkTlXTcxphtUa")
@@ -64,15 +43,14 @@
 
 		data(){
 			return {
-				isFlightSelected: false,
-				airports: [
+				isHotelSelected: false,
+				cities: [
 					{name: 'Tel-Aviv', code: 'TLV'},
 		      { name: 'Amsterdam', code:'AMS' },
 		      { name: 'Rhodes', code:'RHO' },
 					{name: 'Heraklion', code:'HER'}
     		],
-				origin: "Origin",
-				destination: "Destination",
+				where: "Where",
 				fromDate: new Date(),
 				toDate: "Return",
 				fromRange:{
@@ -81,7 +59,7 @@
 			toRange:{
 				to: this.fromDate
 			},
-			flightsList: []
+			hotelsList: []
 
 
 			};
@@ -96,17 +74,16 @@
 	        }
 		},
 		methods: {
-			selectFlight(flight){
-					this.$store.commit("setFlight",flight);
-					this.isFlightSelected = true;
+			selectHotel(hotel){
+					this.$store.commit("setHotel",flight);
+					this.isHotelSelected = true;
 			},
 			limitToDate(){
 			},
-			getFlights(){
+			getHotels(){
 				var depDate = this.fromDate.getUTCFullYear() + '-' + ('0' + (this.fromDate.getMonth()+1)).slice(-2) + '-' + ('0' + this.fromDate.getDate()).slice(-2);
 				var queryParams = {
 		      apikey: "4nASj9auy2YzEHgLXOmup1lqFWGVRByK",
-					origin: this.origin,
 					destination: this.destination,
 					departure_date:depDate,
 					return_date: retDate
@@ -136,7 +113,7 @@ body{
 	background:#4CAF50;
 }
 .navbar{
-	margin-top:40px;
+	margin-top:110px;
 	text-align:center;
 }
 .nav-item {

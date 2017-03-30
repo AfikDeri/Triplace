@@ -1,29 +1,46 @@
 <template>
 	<div>
-		<h4 class="text-center">Forcast here...</h4>
+		<ul>
+			<li v-for="daily in forcast.DailyForecasts">{{ daily.Day.IconPhrase }}</li>
+		</ul>
 	</div>
 </template>
 
 <script>
-	import {buildWeatherTo7DaysURL} from '../helpers/urls.js'
+	import {buildWeatherForecastURL} from '../helpers/urls.js'
 	import axios from 'axios';
 
 	export default{
 		name: "forcast",
 
 		mounted(){
+			let country = this.$route.params.name;
+			let id;
 
-			//get your weather
-			axios.get(buildWeatherTo7DaysURL("36.0857", "-115.1541"))
-				.then(response => {
-					console.log(data);
-					//this.forcast = response.data;
-				});
+			this.countries.map(ctr => {
+				if(ctr.name == country){
+					id = ctr.id;
+				}
+			});
+
+			if(id != undefined){
+				//get your weather
+				axios.get(buildWeatherForecastURL(id))
+					.then(response => {
+						console.log(response.data);
+						this.forcast = response.data;
+					});
+			}
+
 		},
-
 		data(){
 			return {
 				forcast: {}
+			}
+		},
+		computed: {
+			countries(){
+				return this.$store.state.countries;
 			}
 		}
 

@@ -1,4 +1,5 @@
 const AMADEUS_API_KEY = "xwR0oWfcONHrrAfMLAaPG1xIfntZg6Rc";
+const ACCUWEATHER_API_KEY = "MTrGMqxHjrOQytTHCftjAcKnl5P3GfAT";
 
 const AMADEUS_URL_BASE = "https://api.sandbox.amadeus.com/v1.2/";
 const GET_HOTELS_URL = "hotels/search-circle?apikey=";
@@ -11,10 +12,10 @@ const GET_EXTENSIVE_FLIGHTS = "flights/extensive-search?apikey="; //Single trave
 const GET_LOW_FAIR_FLIGHTS = "flights/low-fare-search?apikey="; //Single traveler or affiliate
 const GET_AFFILIATE_FLIGHTS = "flights/affiliate-search?apikey= &origin=LON&destination=DUB&departure_date=2017-08-25"; //Single traveler or affiliate
 
-const GET_WEATHER_TO_7_DAYS_URL = "https://twcservice.mybluemix.net/api/weather/v1/geocode/"
+const GET_ACCUWEATHER_CITY_INFO_URL = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
 
-export function buildWeatherTo7DaysURL(longitude , latitude) {
-  return GET_WEATHER_TO_7_DAYS_URL + latitude + "/" + longitude + "/forecast/daily/7day.json";
+export function buildWeatherForecastURL(cityId) {
+  return GET_ACCUWEATHER_CITY_INFO_URL + cityId + "?apikey=" + ACCUWEATHER_API_KEY;
 }
 
 export function urlencode(str) {
