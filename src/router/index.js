@@ -7,6 +7,8 @@ import Post from '../components/Post'
 import Flights from '../components/Flights'
 import Country from '../components/Country'
 import Contact from '../components/Contact'
+import MyTrip from '../components/MyTrip'
+import Hotels from '../components/Hotels'
 
 Vue.use(Router)
 
@@ -36,6 +38,14 @@ let router = new Router({
     {
       path: '/contact',
       component: Contact
+    },
+    {
+      path: '/mytrip',
+      component: MyTrip
+    },
+    {
+      path: '/hotels',
+      component: Hotels
     }
   ]
 });

@@ -8,7 +8,10 @@ export const store = new Vuex.Store({
 	state: {
 		user: null,
 		showMenu: false,
+		flight:null,
+		hotel:null,
 		posts: [],
+<<<<<<< Updated upstream
         countries: [
 					{name:"argentina", upper: "Argentina", id:"9562"},
 		{name:"belize", upper: "Belize", id:"27206"},
@@ -21,6 +24,13 @@ export const store = new Vuex.Store({
 		{name:"peru", upper:"Peru", id:"258245"}
 
         ]
+=======
+    countries: [
+        {name: "Brazil", image: "https://www.w3schools.com/w3images/girl_train.jpg"},
+        {name: "Mexico", image: "https://www.w3schools.com/w3images/girl.jpg"},
+        {name: "Israel", image: "https://www.w3schools.com/w3images/natureboy.jpg"}
+    ]
+>>>>>>> Stashed changes
 	},
 	mutations: {
         setUser(state, payload){
@@ -34,7 +44,13 @@ export const store = new Vuex.Store({
 				},
         logout(state){
             state.user = null;
-        }
+        },
+				setFlight(state,payload){
+					state.flight = payload;
+				},
+				setHotel(state,payload){
+					state.hotel = payload;
+				}
 
     },
 	actions: {

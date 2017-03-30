@@ -23,10 +23,8 @@
                     .then(response => {
                       if (response!= null){
                         localStorage.setItem("userInfo",JSON.stringify(response));
+                        this.$store.commit('setUser', response);
                       }
-                        this.$store.commit('setUser', {
-                            name: "Afik Deri"
-                        });
 
                         console.log(response);
                     })
