@@ -5,7 +5,7 @@
 </template>
 
 <script>
-	import buildWeatherTo7DaysURL from '../helpers/urls.js'
+	import {buildWeatherTo7DaysURL} from '../helpers/urls.js'
 	import axios from 'axios';
 
 	export default{
