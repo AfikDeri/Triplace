@@ -57,6 +57,13 @@ let router = new Router({
 
 router.beforeEach((to, from, next) => {
   	store.commit("toggleNav", false);
+
+  	let name = to.matched[0].components.default.name;
+
+  	if(name != "country"){
+  		store.commit("setCountry", null);
+  	}	
+
   	next();
 })
 

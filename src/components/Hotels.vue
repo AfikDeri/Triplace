@@ -107,6 +107,7 @@
 	}
 
 </script>
+
 <style scoped>
 body{
 	background-color:#4CAF50;
