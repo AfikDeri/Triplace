@@ -1,21 +1,30 @@
 <template>
   <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
-  
-    <!-- Photo grid -->
-    <div class="w3-row w3-grayscale-min">
-      <div class="w3-quarter">
-        <img v-for="country in countries" :src="country.image" style="width:100%" @click="showCountry('brazil')" alt="Canoeing again">
-      </div>
-      <div class="w3-quarter">
-        <img v-for="country in countries" :src="country.image" style="width:100%" @click="showCountry('brazil')" alt="Canoeing again">
-      </div>
-      <div class="w3-quarter">
-        <img v-for="country in countries" :src="country.image" style="width:100%" @click="showCountry('brazil')" alt="Canoeing again">
-      </div>
-      <div class="w3-quarter">
-        <img v-for="country in countries" :src="country.image" style="width:100%" @click="showCountry('brazil')" alt="Canoeing again">
-      </div>
-    </div>
+      <div class="w3-row w3-grayscale-min">
+          <div class="w3-quarter">
+            <img :src="require('../assets/Argentina.jpg')" style="width:100%" @click="showCountry('argentina')" alt="Argentina">
+            <img :src="require('../assets/Belize.jpg')" style="width:100%" @click="showCountry('belize')" alt="Belize">
+            <img :src="require('../assets/Bolivia.jpg')" style="width:100%" @click="showCountry('bolivia')" alt="Bolivia">
+          </div>
+
+          <div class="w3-quarter">
+            <img :src="require('../assets/Brazil.jpg')" style="width:100%" @click="showCountry('brazil')" alt="Brazil">
+            <img :src="require('../assets/Chile.jpg')" style="width:100%" @click="showCountry('chile')" alt="Chile">
+            <img :src="require('../assets/Colombia.jpg')" style="width:100%" @click="showCountry('colombia')" alt="Colombia">
+          </div>
+
+          <div class="w3-quarter">
+            <img :src="require('../assets/CostaRica.jpg')" style="width:100%" @click="showCountry('costaRica')" alt="Costa Rica">
+            <img :src="require('../assets/Ecuador.jpg')" style="width:100%" @click="showCountry('ecuador')" alt="Ecuador">
+            <img :src="require('../assets/Peru.jpg')" style="width:100%" @click="showCountry('peru')" alt="Peru">
+          </div>
+
+          <div class="w3-quarter">
+            <img :src="require('../assets/Mexico.jpg')" style="width:100%" @click="showCountry('mexico')" alt="Mexico">
+            <img :src="require('../assets/Panama.jpg')" style="width:100%" @click="showCountry('panama')" alt="Panama">
+            <img :src="require('../assets/Guatemala.jpg')" style="width:100%" @click="showCountry('guatemala')" alt="Guatemala">
+          </div>
+        </div>
   </div>
 </template>
 
