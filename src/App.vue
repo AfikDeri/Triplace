@@ -26,10 +26,9 @@ import AppFooter from './components/AppFooter';
 export default {
     name: 'app',
     mounted() {
-      if (localStorage.getItem("userInfo") != null){
-        this.$store.commit("setUser", JSON.parse(localStorage.getItem("userInfo")));
-      }
-      this.getLocation();
+        if (localStorage.getItem("userInfo") != null){
+            this.$store.commit("setUser", JSON.parse(localStorage.getItem("userInfo")));
+        }
     },
     computed: {
         user(){
@@ -38,17 +37,7 @@ export default {
     },
 
     methods: {
-      getLocation() {
-          if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(this.showPosition);
-          } else {
-              x.innerHTML = "Geolocation is not supported by this browser.";
-          }
-      },
-      showPosition(position) {
-        this.$store.location = position.coords;
-        console.log(position.coords);
-      }
+        //  
     },
 
     components:{
