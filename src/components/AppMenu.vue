@@ -4,8 +4,8 @@
 			<button class="w3-bar-item w3-button w3-center w3-padding-16" @click.prevent="$store.commit('toggleNav', false)">
 					<i class="fa fa-arrow-right" aria-hidden="true"></i>
 			</button>
-			<router-link to="/" class="w3-bar-item w3-button w3-center w3-padding-16">
-				<a><i class="fa fa-map-o"></i> MY TRIP</a>
+			<router-link to="/mytrip" class="w3-bar-item w3-button w3-center w3-padding-16">
+				<a><i class="fa fa-map-o"></i> MY TRIPS</a>
 			</router-link>
 			<router-link to="/contact" class="w3-bar-item w3-button w3-center w3-padding-16">
 				<a><i class="fa fa-commenting"></i> CONTACT US</a>

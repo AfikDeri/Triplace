@@ -7,7 +7,7 @@
 
 					<h5>{{ forcastDate(daily.Date) }}</h5>
 					<img :src="require('../assets/weatherIcons/' + daily.Day.Icon + '-s.png')" alt="">
-					<h6>{{ forcastTemp(daily.Temperature.Minimum.Value, daily.Temperature.Maximum.Value, daily.Temperature.Minimum.Unit) }}</h6>
+					<h6>{{ forcastTemp(Math.round((daily.Temperature.Minimum.Value - 32) * 5 / 9), Math.round((daily.Temperature.Maximum.Value - 32) * 5 / 9), daily.Temperature.Minimum.Unit) }}</h6>
 				</div>
 			</div>
 		</div>
@@ -60,6 +60,8 @@
 			},
 
 			forcastTemp(min, max, unit){
+				if(unit == "F")
+					unit = "C";
 				return min + " " + unit + " / " + max + " " + unit;
 			}
 
