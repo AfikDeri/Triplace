@@ -108,7 +108,7 @@
 <style>
 
 .mytrips{
-	padding-top:10%;
+	padding-top:12%;
 	background: url('../assets/bg.jpg');
 	height:100vh;
 	width:100%;
@@ -139,5 +139,8 @@ select{
 		height: 40px;
 		font-size: 20px;
 		text-align: center;
+}
+.nav-pills li a{
+	color:#000000;
 }
 </style>
