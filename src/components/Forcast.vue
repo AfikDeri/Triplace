@@ -3,7 +3,6 @@
 		<div id="weather-wrapper">
 			<div class="row">
 				<div class="col-xs-1 daily-forcast-margin"></div>
-				<div class="-xs-1 daily-forcast-margin"></div>
 				<div v-for="daily in forcast.DailyForecasts" class="col-xs-2 daily-forcast text-center">
 
 					<h5>{{ forcastDate(daily.Date) }}</h5>
