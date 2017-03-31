@@ -1,6 +1,6 @@
 <template>
 	<div >
-		<form @submit=getFlights v-if="!isFlightSelected">
+		<form @submit.prevent="getFlights" v-if="!isFlightSelected">
 		<ul class=" navbar">
 		<li class="nav-item">
 			<datepicker  v-model="fromDate" placeholder="Departure"></datepicker>

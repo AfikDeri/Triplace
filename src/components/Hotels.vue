@@ -1,6 +1,6 @@
 <template>
 	<div >
-		<form @submit=getHotels v-if="!isHotelSelected">
+		<form @submit.prevent="getHotels" v-if="!isHotelSelected">
 		<ul class=" navbar">
 		<li class="nav-item">
 			<datepicker v-model="fromDate" placeholder="Departure" ></datepicker>
