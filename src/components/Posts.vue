@@ -37,7 +37,6 @@
 			<hr>
 			<h3 class="no-results">No results for this category</h3>
 		</div>
-
 	</div>
 </template>
 

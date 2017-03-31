@@ -1,5 +1,5 @@
 <template>
-    <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px;margin-bottom:70px;">
+    <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px;">
       <div class="w3-row w3-grayscale-min">
           <div class="col-sm-4" v-for="country in countries">
             <router-link :to="'/countries/' + country.name">

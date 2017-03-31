@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 
+<<<<<<< HEAD
 		state: {
 				user: null,
 				numOfGuests:1,
@@ -13,6 +14,16 @@ export const store = new Vuex.Store({
 				flight:null,
 				hotel:null,
 				posts: [],
+=======
+	state: {
+		user: null,
+		showMenu: false,
+		query: "",
+		location: {},
+		flight:null,
+		hotel:null,
+		posts: [],
+>>>>>>> origin/master
         selectedCountry: null,
         categories: [],
         countries: [
@@ -54,6 +65,9 @@ export const store = new Vuex.Store({
 		},
         setCategories(state, payload){
             state.categories = payload;
+        },
+        setLocation(state, payload){
+            state.location = payload;
         }
 
     },

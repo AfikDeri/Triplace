@@ -6,10 +6,11 @@
         <div id="content">
             <transition name="fade">
                 <router-view
-                    keep-alive> 
+                    keep-alive>
                 </router-view>
             </transition>
         </div>
+        <app-footer></app-footer>
     </div>
     <div v-else>
         <login></login>
@@ -20,13 +21,14 @@
 <script>
 import AppMenu from './components/AppMenu';
 import Login from './components/Login';
+import AppFooter from './components/AppFooter';
 
 export default {
     name: 'app',
     mounted() {
-      if (localStorage.getItem("userInfo") != null){
-        this.$store.commit("setUser", JSON.parse(localStorage.getItem("userInfo")));
-      }
+        if (localStorage.getItem("userInfo") != null){
+            this.$store.commit("setUser", JSON.parse(localStorage.getItem("userInfo")));
+        }
     },
     computed: {
         user(){
@@ -34,8 +36,12 @@ export default {
         }
     },
 
+    methods: {
+        //  
+    },
+
     components:{
-        AppMenu, Login
+        AppMenu, Login, AppFooter
     }
 }
 </script>
