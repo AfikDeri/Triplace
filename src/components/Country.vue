@@ -2,7 +2,7 @@
 	<div class="w3-container main-title">
 		<button id="add-post" @click.prevent="showModal = true">Create Post <i class="fa fa-plus"></i></button>
 		<div class="exchange">
-			<p>EUR/ILS {{ rate }}</p>
+			<p>EUR/BRL {{ rate }}</p>
 		</div>
 		<forcast></forcast>
 		<hr>
@@ -124,9 +124,9 @@
 		},
 		methods: {
 			showExchange(){
-				axios.get("http://api.fixer.io/latest?symbols=ILS")
+				axios.get("http://api.fixer.io/latest?symbols=BRL")
 				.then(response => {
-					this.rate = response.data.rates.ILS;
+					this.rate = response.data.rates.BRL;
 				})
 				.catch(error => {
 					console.log(error);

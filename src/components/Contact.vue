@@ -60,6 +60,9 @@
 </script>
 
 <style>
+div#contact {
+    margin-top: 100px;
+}
 .submit-btn:hover {
 	color: #000!important;
 	box-shadow: 3px 2px 3px #beb2b2;

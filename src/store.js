@@ -6,16 +6,6 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
 
 	state: {
-<<<<<<< HEAD
-
-				user: null,
-				showMenu: false,
-				query: "",
-				location: {},
-				flight:null,
-				hotel:null,
-				posts: [],
-=======
 		user: null,
         numOfGuests:1,
 		showMenu: false,
@@ -24,7 +14,6 @@ export const store = new Vuex.Store({
 		flight:null,
 		hotel:null,
 		posts: [],
->>>>>>> origin/master
         selectedCountry: null,
         categories: [],
         countries: [
