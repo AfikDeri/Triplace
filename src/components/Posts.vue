@@ -1,7 +1,7 @@
 <template>
 	<div class="posts-list">
 		<div v-if="posts.length">
-			<div v-for="post in posts">
+			<div v-for="post in filteredPosts">
 				<div class="left-panel">
 			        <div class="col-xs-12 col-sm-12 col-lg-12">
 			            <div class="panel panel-default">
@@ -50,7 +50,22 @@
 
 			posts(){
 	            return this.$store.state.posts;
-	        }
+	        },
+
+	        query(){
+		      	return this.$store.state.query;
+		    },
+
+	        filteredPosts(){
+
+		      if(this.query == ""){
+		        return this.posts;
+		      }
+
+		      return this.posts.filter(post => {
+		        return (post.title.toLowerCase().indexOf(this.query) !== -1);
+		      });
+		    }
 		},
 		methods: {
 			//

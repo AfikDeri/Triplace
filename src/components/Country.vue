@@ -175,4 +175,7 @@
 	    background: #337ab7;
 	    color: #fff;
 	}
+	.main-title {
+	    margin-top: 70px;
+	}
 </style>

@@ -14,7 +14,8 @@ import Hotels from '../components/Hotels'
 Vue.use(Router)
 
 let router = new Router({
-  routes: [
+	mode: 'history',
+  	routes: [
     {
       path: '/',
       name: 'Home',
@@ -51,8 +52,7 @@ let router = new Router({
     {
     	path: "*",
     	component: NotFound
-    }
-  ]
+    }]
 });
 
 router.beforeEach((to, from, next) => {
