@@ -1,6 +1,9 @@
 <template>
 	<div class="w3-container main-title">
 		<button id="add-post" @click.prevent="showModal = true">Create Post <i class="fa fa-plus"></i></button>
+		<div class="exchange">
+			<p>EUR/ILS {{ rate }}</p>
+		</div>
 		<forcast></forcast>
 		<hr>
 		<div id="category-filter">
@@ -82,6 +85,7 @@
 			});
 
 			this.selectCategory("All");
+			this.showExchange();
 		},
 
 		computed: {
@@ -105,6 +109,7 @@
 		data(){
 			return {
 				viewType: "list",
+				rate: "",
 				country: "",
 				cat: "",
 				showModal: false,
@@ -118,6 +123,15 @@
 			}
 		},
 		methods: {
+			showExchange(){
+				axios.get("http://api.fixer.io/latest?symbols=ILS")
+				.then(response => {
+					this.rate = response.data.rates.ILS;
+				})
+				.catch(error => {
+					console.log(error);
+				});
+			},
 			selectCategory(category){
 				this.cat = category;
 
@@ -160,12 +174,28 @@
 </script>
 
 <style scoped>
+	.exchange {
+	    background: #337ab7;
+	    left: 1px;
+	    margin-top: 180px;
+	    width: 68px;
+	    height: 87px;
+	    display: block;
+	    position: fixed;
+	    border-radius: 0px 7px 7px 0px;
+	    border: #6c6c6c 1px solid;
+	    color: #fff;
+	    font-size: 13px;
+	    text-align: center;
+	    font-weight: 600;
+	    padding-top: 22px;
+	}
 	.post-wrapper {
 	    background: #eee;
 	    border-radius: 7px;
 	}
 	button#add-post {
-	    margin-top: 100px;
+	    margin-top: 78px;
 	    float: left;
 	    position: fixed;
 	    height: 90px;
@@ -174,5 +204,8 @@
 	    border-radius: 0px 8px 8px 0px;
 	    background: #337ab7;
 	    color: #fff;
+	}
+	.main-title {
+	    margin-top: 70px;
 	}
 </style>

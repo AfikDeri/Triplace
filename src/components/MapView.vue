@@ -77,6 +77,7 @@ export default{
 				'<h1 id="firstHeading" class="firstHeading">'+ post.title +'</h1>'+
 				'<div id="bodyContent">'+
 				'<p>'+ post.body +'</p>'+
+				'<div class="pull-right"><a href="/posts/' + post.id + '">View post</a></div>'+
 				'</div>'+
 				'</div>';
 
