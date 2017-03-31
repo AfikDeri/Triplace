@@ -30,6 +30,7 @@
                         .then(res => {
                             localStorage.setItem("userInfo",JSON.stringify(res.data.user));
                             this.$store.commit("setUser", res.data.user);
+                            this.$router.push({path: "/"})
                         })
                         .catch(err => {
                             swal("Oops", "Something went wrong, please try again", "error");
