@@ -5,14 +5,10 @@
 					<i class="fa fa-arrow-right" aria-hidden="true"></i>
 			</button>
 			<router-link to="/" class="w3-bar-item w3-button w3-center w3-padding-16">
-				<a>
-						MY TRIP
-				</a>
+				<a>MY TRIP</a>
 			</router-link>
 			<router-link to="/contact" class="w3-bar-item w3-button w3-center w3-padding-16">
-				<a>
-						CONTACT
-				</a>
+				<a>CONTACT</a>
 			</router-link>
 			<button @click.prevent="logout" class="w3-bar-item w3-button w3-center w3-padding-16">
 					LOG OUT

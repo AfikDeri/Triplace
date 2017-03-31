@@ -6,10 +6,11 @@
         <div id="content">
             <transition name="fade">
                 <router-view
-                    keep-alive> 
+                    keep-alive>
                 </router-view>
             </transition>
         </div>
+        <app-footer></app-footer>
     </div>
     <div v-else>
         <login></login>
@@ -20,6 +21,7 @@
 <script>
 import AppMenu from './components/AppMenu';
 import Login from './components/Login';
+import AppFooter from './components/AppFooter';
 
 export default {
     name: 'app',
@@ -27,6 +29,7 @@ export default {
       if (localStorage.getItem("userInfo") != null){
         this.$store.commit("setUser", JSON.parse(localStorage.getItem("userInfo")));
       }
+      this.getLocation();
     },
     computed: {
         user(){
@@ -34,8 +37,22 @@ export default {
         }
     },
 
+    methods: {
+      getLocation() {
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(this.showPosition);
+          } else {
+              x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+      },
+      showPosition(position) {
+        this.$store.location = position.coords;
+        console.log(position.coords);
+      }
+    },
+
     components:{
-        AppMenu, Login
+        AppMenu, Login, AppFooter
     }
 }
 </script>

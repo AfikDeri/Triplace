@@ -4,7 +4,6 @@ a:hover{
 
 div#content {
     margin-top: 70px;
-    margin-bottom: 70px;
 }
 
 .container-fluid{
@@ -49,4 +48,10 @@ a#logo-text, a#logo-text:active {
 .side-nav, .side-nav:hover {
     color: #fff!important;
     background-color: #fff!important;
+}
+
+.footer {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-size: 17px;
 }

@@ -9,6 +9,7 @@ export const store = new Vuex.Store({
 		user: null,
 		showMenu: false,
 		query: "",
+		location: {},
 		flight:null,
 		hotel:null,
 		posts: [],

@@ -8,6 +8,7 @@
 			<button class="btn" @click.prevent="selectCategory('All')" :class="cat == 'All' ? 'btn-primary' : ''">All</button>
 			<button class="btn" @click.prevent="selectCategory(category)" :class="cat.name == category.name ? 'btn-primary' : ''" v-for="category in categories">{{ category.name }}</button>
 		</div>
+		<hr>
 
 		<div class="w3-row">
 			<a href="#" @click.prevent="viewType = 'list'">
@@ -38,7 +39,7 @@
 		name: "country",
 
 		mounted(){
-			this.country = this.$route.params.name;	
+			this.country = this.$route.params.name;
 
 			this.countries.map(ctr => {
 				if(ctr.name == this.country){
