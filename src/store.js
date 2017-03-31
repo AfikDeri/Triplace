@@ -5,12 +5,8 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 
-<<<<<<< Updated upstream
-
-		state: {
-=======
 	state: {
->>>>>>> Stashed changes
+
 				user: null,
 				showMenu: false,
 				query: "",
