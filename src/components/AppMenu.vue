@@ -4,6 +4,9 @@
 			<button class="w3-bar-item w3-button w3-center w3-padding-16" @click.prevent="$store.commit('toggleNav', false)">
 					<i class="fa fa-arrow-right" aria-hidden="true"></i>
 			</button>
+			<div class="w3-padding-32">
+				<img class="profile-image" :src="profileImage" />
+			</div>
 			<router-link to="/mytrip" class="w3-bar-item w3-button w3-center w3-padding-16">
 				<a><i class="fa fa-map-o"></i> MY TRIPS</a>
 			</router-link>
@@ -46,6 +49,9 @@
 			},
 			selectedCountry(){
 				return this.$store.state.selectedCountry;
+			},
+			profileImage(){
+				return this.$store.state.user.avatar;
 			}
 		},
 
@@ -58,6 +64,13 @@
 </script>
 
 <style>
+.profile-image{
+	border-radius:20px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	border-radius: 50px;
+}
 	#menu-nav{
 		box-shadow: 1px 1px 18px #000;
 		color: #fff!important;
