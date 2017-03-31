@@ -30,7 +30,25 @@ export default {
                  else {
                      reject();
                  }
-            },{scope: 'email,user_location,user_hometown'});
+            },{scope: 'email,user_location,user_hometown,user_friends'});
         });
+    },
+    getFbFriends: function() {
+      this.fbAsyncInit();
+      return new Promise((resolve,reject) => {
+        FB.login((response) => {
+
+             if (response.status != "unknown") {
+               FB.ui({
+                 method: 'send',
+                 link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
+               });
+             }
+             else {
+                 reject();
+             }
+        },{scope: 'email,user_location,user_hometown,user_friends'});
+
+      });
     }
 }
