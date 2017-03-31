@@ -3,10 +3,10 @@
 		<form @submit=getFlights v-if="!isFlightSelected">
 		<ul class=" navbar">
 		<li class="nav-item">
-			<datepicker  v-on:selected="limitToDate" v-model="fromDate" placeholder="Departure" :disabled="fromRange"></datepicker>
+			<datepicker  v-model="fromDate" placeholder="Departure"></datepicker>
 		</li>
 		<li class="nav-item">
-			<datepicker v-model="toDate" placeholder="Return" :disabled="toRange"></datepicker>
+			<datepicker v-model="toDate" placeholder="Return" ></datepicker>
 		</li>
 		<li class="nav-item dropdown">
 			 <select class="btn dropdown-toggle destination" v-model="origin" placeholder="Origin">
@@ -71,14 +71,9 @@
     		],
 				origin: "Origin",
 				destination: "Destination",
-				fromDate: new Date(),
+				fromDate: "Departure",
 				toDate: "Return",
-				fromRange:{
-        to: new Date() // Disable all dates after specific date
-			},
-			toRange:{
-				to: this.fromDate
-			},
+
 			flightsList: []
 
 

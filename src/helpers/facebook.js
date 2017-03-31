@@ -41,7 +41,7 @@ export default {
              if (response.status != "unknown") {
                FB.ui({
                  method: 'send',
-                 link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
+                 link: 'http://test.triplace.com:8080/mytrips',
                });
              }
              else {
