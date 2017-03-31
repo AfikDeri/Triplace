@@ -3,7 +3,7 @@
 
 	<div v-if="showContact">
 		<div class="w3-content" style="max-width:600px">
-			<h4 class="w3-center"><b>Contact Me</b></h4>
+			<h1 class="w3-center"><b>Contact Us</b></h1>
 			<p class="w3-center">Now that you know us, let us know what do you think!</p>
 			<form action="/" method="GET" @submit.prevent="submitForm">
 				<div class="w3-section">
@@ -18,7 +18,7 @@
 					<label>Message</label>
 					<textarea rows="5" class="w3-input w3-border" name="Message" required></textarea>
 				</div>
-				<button type="submit" class="w3-button w3-block w3-black w3-margin-bottom submit-btn" style="background-color:#337ab7!important;">Send Message</button>
+				<button type="submit" class="w3-button w3-block w3-black w3-margin-bottom submit-btn" style="background-color:#337ab7!important;font-size:20px;">Send Message</button>
 		</form>
 	</div>
 </div>

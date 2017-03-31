@@ -5,13 +5,13 @@
 					<i class="fa fa-arrow-right" aria-hidden="true"></i>
 			</button>
 			<router-link to="/" class="w3-bar-item w3-button w3-center w3-padding-16">
-				<a>MY TRIP</a>
+				<a><i class="fa fa-map-o"></i> MY TRIP</a>
 			</router-link>
 			<router-link to="/contact" class="w3-bar-item w3-button w3-center w3-padding-16">
-				<a>CONTACT</a>
+				<a><i class="fa fa-commenting"></i> CONTACT US</a>
 			</router-link>
 			<button @click.prevent="logout" class="w3-bar-item w3-button w3-center w3-padding-16">
-					LOG OUT
+					<i class="fa fa-toggle-on"></i> LOG OUT
 			</button>
 		</nav>
 
