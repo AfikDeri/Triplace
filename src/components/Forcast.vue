@@ -2,7 +2,8 @@
 	<div id="weather_hourly" style="width: 800px; height: 80px; margin: 0px auto; padding: 5px; display: inline;">
 		<div id="weather-wrapper">
 			<div class="row">
-				<div class="col-xs-1"></div>
+				<div class="col-xs-1 daily-forcast-margin"></div>
+				<div class="-xs-1 daily-forcast-margin"></div>
 				<div v-for="daily in forcast.DailyForecasts" class="col-xs-2 daily-forcast text-center">
 
 					<h5>{{ forcastDate(daily.Date) }}</h5>
@@ -72,13 +73,17 @@
 </script>
 
 <style>
+	.daily-forcast-margin {
+		min-height: 50px;
+	}
+
 	.daily-forcast img{
 		width: 80px;
 		margin: 0px auto;
 	}
 
 	.daily-forcast h5{
-		min-height: 40px;
+		min-height: 20px;
 		font-size: 15px;
 	}
 
