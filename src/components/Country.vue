@@ -1,6 +1,6 @@
 <template>
 	<div class="w3-container main-title">
-		<button id="add-post" @click.prevent="showModal = true">Show Modal</button>
+		<button id="add-post" @click.prevent="showModal = true">Create Post <i class="fa fa-plus"></i></button>
 		<forcast></forcast>
 		<hr>
 		<div id="category-filter">
@@ -27,7 +27,7 @@
 			<map-view></map-view>
 		</div>
 
-		<modal v-if="showModal" @close="showModal = false">
+		<modal v-show="showModal" @close="showModal = false">
 	    	<h3 slot="header">Create a new post</h3>
 	    	<div slot="body">
 	    		<form action="" method="GET">
@@ -82,8 +82,6 @@
 			});
 
 			this.selectCategory("All");
-
-			google.maps.event.addDomListener(window, 'load', this.initializeAutocomplete);
 		},
 
 		computed: {
@@ -98,6 +96,9 @@
 			},
 			categories(){
 	        	return this.$store.state.categories;
+	        },
+	        location(){
+	        	return this.$store.state.location;
 	        }
 		},
 
@@ -107,6 +108,7 @@
 				country: "",
 				cat: "",
 				showModal: false,
+				address: "",
 				post: {
 					title: "",
 					body: "",
@@ -135,20 +137,19 @@
 
 				let url = "http://dev.servpile.com/api/posts?api_token=uPfQo1ED5tVPkd6zQ42Y1AfMZsEHeo0QvD0ZlEVuWUMni7OIkTlXTcxphtUa";
 
-				// axios.post(url, {
-				// 	user_id: this.user.id,
-				// 	category_id: this.post.category_id,
-				// 	title: this.post.title,
-				// 	body: this.post.body,
-				// 	lat: ,
-				// 	lng: ,
-				// 	city: this.user.city,
-				// 	country: this.user.country,
-				// 	timezone:
-				// })
-				// .then(response => {
-				// 	console.log(response);
-				// })
+				let data = {
+					user_id: this.user.id,
+					category_id: this.post.category_id,
+					title: this.post.title,
+					body: this.post.body
+				};
+
+				axios.post(url, data)
+				.then(response => {
+					// swal("Done", "Your post has been created successfully.", "success");
+					this.showModal = false;
+					this.selectCategory("All");
+				});
 
 			}
 		},
@@ -162,5 +163,16 @@
 	.post-wrapper {
 	    background: #eee;
 	    border-radius: 7px;
+	}
+	button#add-post {
+	    margin-top: 100px;
+	    float: left;
+	    position: fixed;
+	    height: 90px;
+	    width: 70px;
+	    left: 0;
+	    border-radius: 0px 8px 8px 0px;
+	    background: #337ab7;
+	    color: #fff;
 	}
 </style>

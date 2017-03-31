@@ -37,7 +37,7 @@
 				//get your weather
 				axios.get(buildWeatherForecastURL(id))
 					.then(response => {
-						console.log(response.data);
+						// console.log(response.data);
 						this.forcast = response.data;
 					});
 			}

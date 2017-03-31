@@ -51,6 +51,9 @@ export const store = new Vuex.Store({
 		},
         setCategories(state, payload){
             state.categories = payload;
+        },
+        setLocation(state, payload){
+            state.location = payload;
         }
 
     },
