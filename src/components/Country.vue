@@ -1,7 +1,7 @@
 <template>
 	<div class="w3-container main-title">
+		<button id="add-post" @click.prevent="showModal = true">Show Modal</button>
 		<forcast></forcast>
-
 		<hr>
 		<div id="category-filter">
 			<span>Filter By:</span>
@@ -26,6 +26,39 @@
 		<div class="w3-container city" v-if="viewType == 'map'">
 			<map-view></map-view>
 		</div>
+
+		<modal v-if="showModal" @close="showModal = false">
+	    	<h3 slot="header">Create a new post</h3>
+	    	<div slot="body">
+	    		<form action="" method="GET">
+	    			<div class="form-group">
+	    				<label for="is_question">Question or Suggestion?</label>
+	    				<select name="is_question" class="form-control" v-model="post.is_question">
+	    					<option value="1">Question</option>
+	    					<option value="0">Suggestion</option>
+	    				</select>
+	    			</div>
+	    			<div class="form-group">
+	    				<label for="category_id">Category</label>
+	    				<select name="category_id" class="form-control" v-model="post.category_id">
+	    					<option v-for="category in categories" :value="category.id">{{ category.name }}</option>
+	    				</select>
+	    			</div>
+	    			<div class="form-group">
+	    				<label for="title">Title</label>
+	    				<input type="text" class="form-control" name="title" v-model="post.title">
+	    			</div>
+	    			<div class="form-group">
+	    				<label for="body">Whats on your mind?</label>
+	    				<textarea rows="3" class="form-control" name="body" v-model="post.body"></textarea>
+	    			</div>
+	    		</form>
+	    	</div>
+	    	<div slot="footer">
+                <button @click="createPost" class="modal-default-button">SUBMIT</button>
+                <button @click="showModal = false" class="modal-default-button">CLOSE</button>
+            </div>
+	  	</modal>
 	</div>
 </template>
 
@@ -33,6 +66,7 @@
 	import axios from 'axios';
 	import Posts from './Posts';
 	import MapView from './MapView';
+	import Modal from './Modal';
 	import Forcast from './Forcast';
 
 	export default{
@@ -48,11 +82,16 @@
 			});
 
 			this.selectCategory("All");
+
+			google.maps.event.addDomListener(window, 'load', this.initializeAutocomplete);
 		},
 
 		computed: {
 			posts(){
 				return this.$store.state.posts;
+			},
+			user(){
+				return this.$store.state.user;
 			},
 			countries(){
 				return this.$store.state.countries;
@@ -66,7 +105,14 @@
 			return {
 				viewType: "list",
 				country: "",
-				cat: ""
+				cat: "",
+				showModal: false,
+				post: {
+					title: "",
+					body: "",
+					is_question: 0,
+					category_id: 1
+				}
 			}
 		},
 		methods: {
@@ -84,10 +130,30 @@
 
 					eventBus.$emit("postsRefreshed");
 				});
+			},
+			createPost(){
+
+				let url = "http://dev.servpile.com/api/posts?api_token=uPfQo1ED5tVPkd6zQ42Y1AfMZsEHeo0QvD0ZlEVuWUMni7OIkTlXTcxphtUa";
+
+				// axios.post(url, {
+				// 	user_id: this.user.id,
+				// 	category_id: this.post.category_id,
+				// 	title: this.post.title,
+				// 	body: this.post.body,
+				// 	lat: ,
+				// 	lng: ,
+				// 	city: this.user.city,
+				// 	country: this.user.country,
+				// 	timezone:
+				// })
+				// .then(response => {
+				// 	console.log(response);
+				// })
+
 			}
 		},
 		components: {
-			Posts, MapView, Forcast
+			Posts, MapView, Forcast, Modal
 		}
 	}
 </script>
