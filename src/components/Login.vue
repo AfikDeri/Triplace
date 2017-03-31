@@ -50,7 +50,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 body{
-  background: url('../assets/bg.jpeg');
+  background: url('../assets/bg.jpg');
   background-size: 100%;
   height:100vh;
   background-repeat:no-repeat;

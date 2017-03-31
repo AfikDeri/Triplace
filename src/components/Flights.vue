@@ -42,7 +42,10 @@
 	</div>
 </form>
 <div v-if="isFlightSelected">
-	<h3>Your fligh has been added to your cart!</h3>
+	<h3>Your flight has been added to your quote!</h3>
+	<div class="num-of-guests-wrapper">
+		<button class="btn btn-primary" v-on:click="navHotels" >Continue >> </button>
+	</div>
 </div>
 	</div>
 </template>
@@ -55,11 +58,6 @@
 		name: "flights",
 
 		mounted(){
-			// axios.get("http://dev.servpile.com/api/posts?api_token=uPfQo1ED5tVPkd6zQ42Y1AfMZsEHeo0QvD0ZlEVuWUMni7OIkTlXTcxphtUa")
-			// .then((response) => {
-			//
-			// 	this.$store.commit("setPosts", response.data.posts);
-			// });
 		},
 
 		data(){
@@ -96,6 +94,10 @@
 	        }
 		},
 		methods: {
+			navHotels(){
+				$("#step3").trigger("click");
+				this.isFlightSelected = false;
+			},
 			selectFlight(flight){
 					this.$store.commit("setFlight",flight);
 					this.isFlightSelected = true;
@@ -121,7 +123,6 @@
 				.then((response) => {
 						if (response && response.data.results.length>0)
 						this.flightsList = response.data.results;
-					//this.$store.commit("setPosts", response.data.posts);
 				});
 			}
 
@@ -131,10 +132,7 @@
 
 </script>
 <style scoped>
-body{
-	background-color:#4CAF50;
-	background:#4CAF50;
-}
+
 .navbar{
 	margin-top:40px;
 	text-align:center;
