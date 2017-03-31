@@ -4,9 +4,10 @@
 			<div class="row">
 				<div class="col-xs-1"></div>
 				<div v-for="daily in forcast.DailyForecasts" class="col-xs-2 daily-forcast text-center">
-					<h5>{{ daily.Day.IconPhrase }}</h5>
+
+					<h5>{{ forcastDate(daily.Date) }}</h5>
 					<img :src="require('../assets/weatherIcons/' + daily.Day.Icon + '-s.png')" alt="">
-					<h6>{{ daily.Temperature.Minimum.Value + " " +daily.Temperature.Minimum.Unit + " / " + daily.Temperature.Maximum.Value + " " +daily.Temperature.Maximum.Unit }}</h6>
+					<h6>{{ forcastTemp(daily.Temperature.Minimum.Value, daily.Temperature.Maximum.Value, daily.Temperature.Minimum.Unit) }}</h6>
 				</div>
 			</div>
 		</div>
@@ -16,12 +17,13 @@
 <script>
 	import {buildWeatherForecastURL} from '../helpers/urls.js'
 	import axios from 'axios';
+	import moment from 'moment'
 
 	export default{
 		name: "forcast",
 
 		mounted(){
-			
+
 			let country = this.$route.params.name;
 			let id;
 
@@ -50,6 +52,17 @@
 			countries(){
 				return this.$store.state.countries;
 			}
+		},
+
+		methods: {
+			forcastDate(value){
+				return moment(value).format("MMM Do");
+			},
+
+			forcastTemp(min, max, unit){
+				return min + " " + unit + " / " + max + " " + unit;
+			}
+
 		}
 
 
